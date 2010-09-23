@@ -103,7 +103,7 @@ class Text extends Kohana_Text
 		// Limit words if necessary
 		if($limit_words !== FALSE)
 		{
-			$text_to_return = Text::limit_words($text,$limit_words);
+			$text_to_return = Text::limit_words($text_to_return,$limit_words);
 		}
 
 		// Widont, auto_link and auto_p the text
