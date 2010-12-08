@@ -38,5 +38,36 @@ class HTML extends Kohana_HTML
 
 		return '<link'.HTML::attributes($attributes).' />';
 	}
+	/**
+	 * Creates a rss alternate link.
+	 *
+	 *     echo HTML::rss('rss');
+	 *
+	 * @param   string   uri or url to link
+	 * @param   array    default attributes
+	 * @param   boolean  include the index page
+	 * @return  string
+	 * @uses    URL::base
+	 * @uses    HTML::attributes
+	 */
+	public static function rss($uri, array $attributes = NULL, $index = FALSE)
+	{
+		if (strpos($uri, '://') === FALSE)
+		{
+			// Add the base URL
+			$uri = URL::base($index).$uri;
+		}
+
+		// Set the rss link
+		$attributes['href'] = $uri;
+
+		// Set the rss rel
+		$attributes['rel'] = 'alternate';
+
+		// Set the rss type
+		$attributes['type'] = 'application/rss+xml';
+
+		return '<link'.HTML::attributes($attributes).' />';
+	}
 } // End Html
 ?>
