@@ -69,5 +69,29 @@ class HTML extends Kohana_HTML
 
 		return '<link'.HTML::attributes($attributes).' />';
 	}
+
+	/**
+	 * Get a HTML list output from flashmessages
+	 *
+	 *     echo HTML::flashmessages('cms');
+	 *
+	 * @param   string  scope of the flash messages
+	 * @param   array   default values to return
+	 * @return  string
+	 */
+	public static function flashmessages($scope = NULL, $default = array())
+	{
+		$list = ($key == NULL) ? '<ul class="flashmessages">' : '<ul id="'.$key.'" class="flashmessages">'."\n";
+
+		$messages = Session::instance()->get_flash($scope, $default);
+
+		foreach($messages as $message)
+		{
+			$list .= '<li class="'.$message['type'].'">'.$message['value'].'</li>'."\n";
+		}
+
+		$list .= '</ul>'."\n";
+		return $list;
+	}
 } // End Html
 ?>
