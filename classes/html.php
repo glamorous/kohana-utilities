@@ -106,6 +106,10 @@ class HTML extends Kohana_HTML
 	{
 		$current = Request::detect_uri();
 		$css_classes = explode('/', $current);
+		// Adding the current locale, language and country
+		$css_classes[] = I18n::lang();
+		$css_classes[] = substr(I18n::lang(), 2);
+		$css_classes[] = substr(I18n::lang(), -2);
 
 		$classes = (Arr::is_array($classes)) ? $classes : array($classes);
 
