@@ -93,5 +93,32 @@ class HTML extends Kohana_HTML
 		$list .= '</ul>'."\n";
 		return $list;
 	}
+	/**
+	 * Get all bodyclasses for the current page
+	 *
+	 *     echo HTML::bodyclass('cms');
+	 *
+	 * @param   mixed  string or array with classes
+	 * @param   bool   only use the provided classes
+	 * @return  string
+	 */
+	public static function bodyclass($classes = NULL, $strict = FALSE)
+	{
+		$current = Request::detect_uri();
+		$css_classes = explode('/', $current);
+
+		$classes = (Arr::is_array($classes)) ? $classes : array($classes);
+
+		if($strict === FALSE)
+		{
+			$css_classes = Arr::merge($css_classes, $classes);
+		}
+		else
+		{
+			$css_classes = $classes;
+		}
+
+		return implode(' ', $css_classes);
+	}
 } // End Html
 ?>
