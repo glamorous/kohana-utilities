@@ -21,14 +21,11 @@ class HTML extends Kohana_HTML
 	 * @return  string
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
+	 * @uses    URL::site
 	 */
-	public static function canonical($uri, array $attributes = NULL, $index = FALSE)
+	public static function canonical($uri = NULL, array $attributes = NULL)
 	{
-		if (strpos($uri, '://') === FALSE)
-		{
-			// Add the base URL
-			$uri = URL::base($index).$uri;
-		}
+		$uri = ($uri !== NULL) ? URL::site($uri) : URL::site(Request::detect_uri());
 
 		// Set the canonical link
 		$attributes['href'] = $uri;
