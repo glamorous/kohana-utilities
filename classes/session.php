@@ -8,7 +8,7 @@
  * @copyright  (c) 2008-2010 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Session extends Kohana_Session
+abstract class Session extends Kohana_Session
 {
 	const FLASH_ERROR = 'error';
 	const FLASH_WARNING = 'warning';
