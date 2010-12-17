@@ -47,12 +47,12 @@ class HTML extends Kohana_HTML
 	 * @uses    URL::base
 	 * @uses    HTML::attributes
 	 */
-	public static function rss($uri, array $attributes = NULL, $index = FALSE)
+	public static function rss($uri, array $attributes = NULL)
 	{
 		if (strpos($uri, '://') === FALSE)
 		{
 			// Add the base URL
-			$uri = URL::base($index).$uri;
+			$uri = URL::base(TRUE).$uri;
 		}
 
 		// Set the rss link
