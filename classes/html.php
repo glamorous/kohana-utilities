@@ -102,7 +102,7 @@ class HTML extends Kohana_HTML
 	 * @param   bool   only use the provided classes
 	 * @return  string
 	 */
-	public static function bodyclass($classes = NULL, $strict = FALSE)
+	public static function bodyclass($classes = '', $strict = FALSE)
 	{
 		$current = Request::detect_uri();
 		$css_classes = explode('/', $current);
