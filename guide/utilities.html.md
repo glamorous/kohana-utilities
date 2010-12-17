@@ -27,7 +27,15 @@ If the current active url is for example `http://www.test.dev/page/subpage?page=
 
 Since Google annouced the use of the canonical link, many developers use them to prevent a penalty from google to have duplicated pages. You provide this code in your `<head>`
 
-	    echo HTML::canonical($uri);	    
+	    echo HTML::canonical($uri, $attributes);	    
 
 `$uri`
 : uri or url where the canonical link has te be linked to, default provided with the current uri
+
+`$attributes`
+: optional array of attributes to provided with the canonical link
+
+The output of the code when the base url is `http://www.test.dev` and the current uri is `home`:
+
+     <link href="http://www.test.dev/home" rel="canonical" />
+
