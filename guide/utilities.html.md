@@ -39,3 +39,19 @@ The output of the code when the base url is `http://www.test.dev` and the curren
 
      <link href="http://www.test.dev/home" rel="canonical" />
 
+
+## Using the rss method
+
+Just like script and style links, you mostly has some rss-links too. This wrapper is you solution. You provide this code in your `<head>`
+
+	    echo HTML::rss($uri, $attributes);	    
+
+`$uri`
+: uri or url where the rss link has te be linked to
+`$attributes`
+: optional array of attributes to provided with the rss link
+
+The output of the code when the base url is `http://www.test.dev` and the uri give `rss/sitemap`:
+
+     <link href="http://www.test.dev/rss/sitemap" rel="alternate" type="application/rss+xml" />
+
