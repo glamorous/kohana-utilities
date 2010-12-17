@@ -20,3 +20,14 @@ A couple of designers love to css stuff on the page based on the bodyclass. So d
 If the current active url is for example `http://www.test.dev/page/subpage?page=1` and we call the class without passing any variables (and the `locale` is being set as `en_US`):
 
      <body class="page subpage en en-us us">
+
+
+
+## Using the canonical method
+
+Since Google annouced the use of the canonical link, many developers use them to prevent a penalty from google to have duplicated pages. You provide this code in your `<head>`
+
+	    echo HTML::canonical($uri);	    
+
+`$uri`
+: uri or url where the canonical link has te be linked to, default provided with the current uri
