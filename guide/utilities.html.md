@@ -56,3 +56,15 @@ The output of the code when the base url is `http://www.test.dev` and the uri gi
 
      <link href="http://www.test.dev/rss/sitemap" rel="alternate" type="application/rss+xml" />
 
+
+## Using the flashmessages method
+
+Flash messages are messages that are stored in a session to only be readed once. Most of the time they are being used for notification-, error- and successmessages. This method returns an `ul`-list with all the available flash-messages with classes provided for every kind of message. This method uses some other custom methods from [Session](utilities.session).
+
+	    echo HTML::flashmessages($scope, $default);
+
+`$scope`
+: Optionally you can choose to retreive only flash messages within a custom scope
+
+`$default`
+: The default array when no flashmessages are found
