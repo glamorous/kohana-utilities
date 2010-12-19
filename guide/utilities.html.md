@@ -48,6 +48,7 @@ Just like script and style links, you mostly has some rss-links too. This wrappe
 
 `$uri`
 : uri or url where the rss link has te be linked to
+
 `$attributes`
 : optional array of attributes to provided with the rss link
 
