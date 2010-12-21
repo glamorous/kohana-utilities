@@ -42,7 +42,7 @@ abstract class Session extends Kohana_Session
 	{
 		$messages = $this->get_flash($scope);
 		$messages[] = array('type' => $type, 'value' => $value);
-		$this->_data['flash'.$scope] = $messages;
+		$this->set('flash'.$scope, $messages);
 
 		return $this;
 	}
